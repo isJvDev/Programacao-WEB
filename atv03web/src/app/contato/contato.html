@@ -1,0 +1,16 @@
+<h3>Contato</h3>
+<b>{{mensagem}}</b>
+<br><br>
+Preencha o formulário abaixo para entrar em contato conosco:<br><br>
+nome:<input type="text" [(ngModel)]="nome" placeholder="digite seu nome completo"><br>
+email:<input type="text" [(ngModel)]="email" placeholder="digite seu email"><br>
+telefone:<input type="text" [(ngModel)]="telefone" placeholder="digite seu telefone"><br>
+assunto:<select [(ngModel)]="titulo">
+    <option>Problemas com produtos</option>
+    <option>Problemas com pedidos</option>
+    <option>Problemas com cadastros</option>
+    <option value="sugestao">Sugestão</option>
+</select><br>
+mensagem:<textarea row="5" col="80" [(ngModel)]="texto"></textarea><br>
+<input type="checkbox" [(ngModel)]="copia">deseja receber uma cópia do email<br>
+<button (click)="enviar()">Enviar</button>
