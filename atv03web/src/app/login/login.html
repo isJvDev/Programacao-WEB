@@ -1,6 +1,11 @@
 <h2>Faça Login aqui!</h2>
-Digite o email:<input type="text" placeholder="Email" [(ngModel)]="email">
+
+<form (ngSubmit)="login()">
+
+Digite o email:<input type="email" name="email" placeholder="Email" [(ngModel)]="email">
 <br>
-Digite a senha:<input type="text" placeholder="Senha" [(ngModel)]="senha">
+Digite a senha:<input type="password" name="senha" placeholder="Senha" [(ngModel)]="senha">
 <br>
-<button (click)="login()">Entrar</button>
+<button type="submit">Entrar</button>
+
+</form>

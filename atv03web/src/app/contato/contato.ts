@@ -16,7 +16,7 @@ export class Contato {
   public telefone: string = '';
   public email: string = '';
   public texto: string = '';
-  public copia: String = '';
+  public copia: string = '';
 
   public obj:Cliente = new Cliente();
   

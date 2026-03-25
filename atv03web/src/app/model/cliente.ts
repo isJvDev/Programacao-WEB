@@ -1,7 +1,8 @@
 export class Cliente {
-  public nome:String="";
-  public email:String="";
-  public telefone:String="";
-  public documento:String="";
-  public logradouro:String="";
+  public nome:string="";
+  public email:string="";
+  public telefone:string="";
+  public documento:string="";
+  public logradouro:string="";
+  public senha:string="";
 }

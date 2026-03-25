@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastrar',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './cadastrar.html',
   styleUrl: './cadastrar.css',
 })
