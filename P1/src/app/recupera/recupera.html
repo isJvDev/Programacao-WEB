@@ -1,0 +1,51 @@
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="card shadow-lg border-0" style="max-width: 400px; width: 100%; border-radius: 12px;">
+    
+    <div class="card-header bg-primary text-white text-center py-4" style="border-radius: 12px 12px 0 0;">
+      <h4 class="mb-0 fw-bold">Recuperar Senha</h4>
+    </div>
+
+    <div class="card-body p-4">
+      
+      <div *ngIf="mensagem.length > 0" 
+           [ngClass]="mensagem.includes('Erro') ? 'alert alert-danger' : 'alert alert-primary'" 
+           class="alert d-flex align-items-center small shadow-sm mb-4" role="alert">
+        <i [class]="mensagem.includes('Erro') ? 'bi bi-exclamation-triangle-fill me-2' : 'bi bi-info-circle-fill me-2'"></i>
+        <div>{{ mensagem }}</div>
+      </div>
+
+      <form>
+        <div class="mb-4">
+          <label for="email" class="form-label small fw-bold text-secondary">E-mail Cadastrado</label>
+          <div class="input-group">
+            <span class="input-group-text bg-light border-end-0">
+              <i class="bi bi-envelope text-muted"></i>
+            </span>
+            <input type="email" 
+                   id="email"
+                   [(ngModel)]="obj.email" 
+                   name="email"
+                   class="form-control border-start-0 ps-0" 
+                   placeholder="seu@email.com"
+                   style="box-shadow: none;">
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-lg w-100 fw-bold mb-3 shadow-sm" 
+                (click)="recuperarSenha()" 
+                type="button">
+          Enviar link
+        </button>
+
+        <div class="text-center">
+          <a href="login" class="text-primary text-decoration-none small fw-bold">
+            <i class="bi bi-chevron-left"></i> Voltar
+          </a>
+        </div>
+      </form>
+    </div>
+
+    <div class="card-footer bg-white border-0 text-center pb-3">
+    </div>
+  </div>
+</div>

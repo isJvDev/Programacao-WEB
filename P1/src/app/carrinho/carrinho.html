@@ -1,0 +1,65 @@
+<div *ngIf="pedidoFinalizado" class="container mt-5">
+    <div class="card border-0 shadow text-center p-5" style="border-radius: 20px;">
+        <div class="card-body">
+            <h1 class="display-1 text-success mb-4">✅</h1>
+            <h2 class="fw-bold">Pedido Realizado com Sucesso!</h2>
+            <p class="text-muted fs-5">Obrigado pela compra! Suas chuteiras chegarão em breve.</p>
+            <hr class="my-4">
+            <a href="vitrine" class="btn btn-success btn-lg px-5 shadow-sm">Voltar para a Loja</a>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!pedidoFinalizado">
+    <div *ngIf="lista.length === 0" class="container mt-5">
+        <div class="alert alert-info text-center p-5 shadow-sm border-0" style="border-radius: 15px; background-color: #f0f7ff;">
+            <h1 class="display-1 text-muted"><i class="bi bi-cart-x"></i></h1>
+            <h2 class="fw-bold text-dark">{{mensagem}}</h2>
+            <p class="text-muted mb-4">Parece que você ainda não escolheu suas chuteiras.</p>
+            <a href="vitrine" class="btn btn-primary btn-lg px-5">Ir para a Vitrine</a>
+        </div>
+    </div>
+
+    <div class="container mt-4" *ngIf="lista.length > 0">
+        <div class="table-responsive shadow-sm rounded">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col" class="ps-3">#</th>
+                        <th scope="col">Produto</th>
+                        <th scope="col" class="text-center">Quantidade</th>
+                        <th scope="col" class="text-end pe-3">Valor Unit.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let obj of lista; let i = index">
+                        <th scope="row" class="ps-3">{{ i + 1 }}</th>
+                        <td class="fw-bold">{{obj.produto.nome}}</td>
+                        <td class="text-center">
+                            <div class="d-flex justify-content-center align-items-center gap-2">
+                                <button type="button" class="btn btn-sm btn-outline-danger rounded-circle" (click)="alterarQuantidade(i, -1)">-</button>
+                                <span class="fw-bold mx-2">{{obj.quantidade}}</span>
+                                <button type="button" class="btn btn-sm btn-outline-success rounded-circle" (click)="alterarQuantidade(i, 1)">+</button>
+                            </div>
+                        </td>
+                        <td class="text-end pe-3">{{ (obj.produto.promo || obj.produto.valor) | currency:'BRL' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card border-0 shadow-sm mt-4 overflow-hidden" style="border-radius: 15px;">
+            <div class="card-body p-4 bg-light">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-muted m-0">Total do Pedido:</h4>
+                    <h2 class="text-success fw-bold m-0">{{ total | currency:'BRL' }}</h2>
+                </div>
+                <hr class="text-muted">
+                <div class="d-flex gap-3">
+                    <button class="btn btn-outline-danger px-4" (click)="limparCarrinho()">Limpar Tudo</button>
+                    <button class="btn btn-success btn-lg flex-grow-1 fw-bold" (click)="gravarPedido()">Confirmar e Gravar Pedido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
