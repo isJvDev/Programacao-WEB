@@ -1,0 +1,34 @@
+<header class="bg-light pb-3">
+    <div class="container py-4 text-center position-relative">
+        
+        <img src="Logo.png" width="220px" class="img-fluid mb-2" alt="Logo">
+        <h1 class="fw-bold text-dark">Chuteiras Multimarcas</h1> 
+
+        <div class="position-absolute top-50 end-0 translate-middle-y me-3">
+            <a routerLink="/login" class="btn btn-outline-dark btn-sm rounded-pill px-3">
+                <i class="bi bi-person-circle me-1"></i> Entrar
+            </a>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="cadastro/" class="nav-link">Cadastrar </a></li>
+            <li class="nav-item"><a href="vitrine" class="nav-link">Vitrine </a></li>
+            <li class="nav-item"><a href="contato" class="nav-link"> Contato </a></li>
+            <li class="nav-item"><a href="carrinho" class="nav-link"> Carrinho </a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <div id="corpo" class="display-6 py-3 border-bottom">
+        <router-outlet></router-outlet>
+    </div> 
+</div>
+
+<footer class="mt-4 p-3 bg-primary text-white rounded">
+    <p align="center">
+        Copyright © 2024 - Loja de Chuteiras Multimarcas
+    </p>
+</footer>
